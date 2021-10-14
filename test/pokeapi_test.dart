@@ -8,12 +8,12 @@ void main() async {
       expect(pokemon["name"], 'bulbasaur');
     });
 
-    test('should return bulbasaur', () async {
+    test('should return ivysaur', () async {
       var pokemon = await pokeapi.getPokemon(2);
       expect(pokemon["name"], 'ivysaur');
     });
 
-    test('should return bulbasaur', () async {
+    test('should return venusaur', () async {
       var pokemon = await pokeapi.getPokemon(3);
       expect(pokemon["name"], 'venusaur');
     });
