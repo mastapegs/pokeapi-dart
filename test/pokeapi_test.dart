@@ -2,10 +2,20 @@ import 'package:pokeapi/pokeapi.dart' as pokeapi;
 import 'package:test/test.dart';
 
 void main() async {
-  group('Personal Tests', () {
-    test('Test pokemon getter', () async {
-      var pokemon = await pokeapi.getPokemon();
+  group('getPokemon', () {
+    test('should return bulbasaur', () async {
+      var pokemon = await pokeapi.getPokemon(1);
       expect(pokemon["name"], 'bulbasaur');
+    });
+
+    test('should return bulbasaur', () async {
+      var pokemon = await pokeapi.getPokemon(2);
+      expect(pokemon["name"], 'ivysaur');
+    });
+
+    test('should return bulbasaur', () async {
+      var pokemon = await pokeapi.getPokemon(3);
+      expect(pokemon["name"], 'venusaur');
     });
   });
 }
