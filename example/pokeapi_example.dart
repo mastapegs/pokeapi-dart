@@ -1,6 +1,6 @@
-import 'package:pokeapi/pokeapi.dart';
+import 'package:pokeapi/pokeapi.dart' as pokeapi;
 
-void main() {
-  var awesome = Awesome();
-  print('awesome: ${awesome.isAwesome}');
+void main() async {
+  var bulbasaur = await pokeapi.getPokemon();
+  print('Pokemon: ${bulbasaur["name"]}');
 }
