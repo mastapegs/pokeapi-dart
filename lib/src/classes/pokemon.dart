@@ -1,12 +1,25 @@
 /// Data for endpoint pokemon/{id or name}/
 
-class Ability {
+class NamedAPIResource {
+  final String name;
+  final String url;
+  NamedAPIResource(dynamic resource)
+      : name = resource['name'],
+        url = resource['url'];
+}
+
+class PokemonAbility {
+  final NamedAPIResource ability;
   final bool isHidden;
-  Ability(dynamic ability) : isHidden = ability['is_hidden'];
+  final int slot;
+  PokemonAbility(dynamic ability)
+      : ability = NamedAPIResource(ability['ability']),
+        isHidden = ability['is_hidden'],
+        slot = ability['slot'];
 }
 
 class Pokemon {
-  final List<Ability> abilities;
+  final List<PokemonAbility> abilities;
   final int baseExperience;
   final int height;
   final int id;
@@ -16,8 +29,8 @@ class Pokemon {
   final int order;
   final int weight;
   Pokemon(dynamic json)
-      : abilities = List<Ability>.from(
-            json['abilities'].map((ability) => Ability(ability))),
+      : abilities = List<PokemonAbility>.from(
+            json['abilities'].map((ability) => PokemonAbility(ability))),
         baseExperience = json['base_experience'],
         height = json['height'],
         id = json['id'],
