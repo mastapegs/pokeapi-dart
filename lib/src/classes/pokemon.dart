@@ -1,12 +1,11 @@
 /// Data for endpoint pokemon/{id or name}/
 
 class Pokemon {
-  int? baseExperience;
-  int? id;
-  String? name;
-  Pokemon(dynamic json) {
-    name = json['name'];
-    id = json['id'];
-    baseExperience = json['base_experience'];
-  }
+  final int baseExperience;
+  final int id;
+  final String name;
+  Pokemon(dynamic json)
+      : baseExperience = json['base_experience'],
+        id = json['id'],
+        name = json['name'];
 }
