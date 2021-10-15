@@ -3,6 +3,10 @@
 /// More dartdocs go here.
 library pokeapi;
 
-export 'src/pokemon.dart';
+// Classes
+export 'src/classes/pokemon.dart';
+
+// Getters
+export 'src/get_pokemon.dart';
 
 // TODO: Export any libraries intended for clients of this package.
