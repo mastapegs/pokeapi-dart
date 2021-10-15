@@ -5,4 +5,4 @@ library pokeapi;
 export 'src/classes/pokemon.dart';
 
 // Getters
-export 'src/get_pokemon.dart';
+export 'src/getter_functions/get_pokemon.dart';
