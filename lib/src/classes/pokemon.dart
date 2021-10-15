@@ -5,7 +5,7 @@ class Pokemon {
   final int id;
   final String name;
   Pokemon(dynamic json)
-      : name = json['name'],
+      : baseExperience = json['base_experience'],
         id = json['id'],
-        baseExperience = json['base_experience'];
+        name = json['name'];
 }
