@@ -4,7 +4,8 @@ class Pokemon {
   final int baseExperience;
   final int height;
   final int id;
-  final int isDefault;
+  final bool isDefault;
+  final String locationAreaEncounters;
   final String name;
   final int order;
   final int weight;
@@ -13,6 +14,7 @@ class Pokemon {
         height = json['height'],
         id = json['id'],
         isDefault = json['is_default'],
+        locationAreaEncounters = json['location_area_encounters'],
         name = json['name'],
         order = json['order'],
         weight = json['weight'];
