@@ -1,7 +1,7 @@
-/// data for endpoint https://pokeapi.co/api/v2/pokemon/{id or name}/
+/// Data for endpoint pokemon/{id or name}/
 
 class Pokemon {
-  int? name;
+  String? name;
   Pokemon(dynamic json) {
     name = json['name'];
   }
