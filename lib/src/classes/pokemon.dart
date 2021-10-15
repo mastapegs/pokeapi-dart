@@ -1,6 +1,12 @@
 /// Data for endpoint pokemon/{id or name}/
 
+// class Ability {
+//   final bool isHidden;
+//   Ability(dynamic abilityMap) : isHidden = abilityMap['is_hidden'];
+// }
+
 class Pokemon {
+  final List<dynamic> abilities;
   final int baseExperience;
   final int height;
   final int id;
@@ -10,7 +16,8 @@ class Pokemon {
   final int order;
   final int weight;
   Pokemon(dynamic json)
-      : baseExperience = json['base_experience'],
+      : abilities = json['abilities'],
+        baseExperience = json['base_experience'],
         height = json['height'],
         id = json['id'],
         isDefault = json['is_default'],
