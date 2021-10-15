@@ -3,6 +3,6 @@
 class Pokemon {
   int? name;
   Pokemon(dynamic json) {
-    this.name = json['name'];
+    name = json['name'];
   }
 }
