@@ -21,6 +21,7 @@ class PokemonAbility {
 class Pokemon {
   final List<PokemonAbility> abilities;
   final int baseExperience;
+  final List<NamedAPIResource> forms;
   final int height;
   final int id;
   final bool isDefault;
@@ -32,6 +33,8 @@ class Pokemon {
       : abilities = List<PokemonAbility>.from(
             json['abilities'].map((ability) => PokemonAbility(ability))),
         baseExperience = json['base_experience'],
+        forms = List<NamedAPIResource>.from(
+            json['forms'].map((form) => NamedAPIResource(form))),
         height = json['height'],
         id = json['id'],
         isDefault = json['is_default'],
