@@ -38,7 +38,7 @@ class Pokemon {
   final String name;
   final int order;
   final int weight;
-  Pokemon(Map<String, dynamic> json)
+  Pokemon.fromJson(Map<String, dynamic> json)
       : abilities = List<PokemonAbility>.from(
             json['abilities'].map((ability) => PokemonAbility(ability))),
         baseExperience = json['base_experience'],
