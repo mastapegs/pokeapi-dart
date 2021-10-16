@@ -3,15 +3,15 @@
 class VersionGameIndex {
   final int gameIndex;
   final NamedAPIResource version;
-  VersionGameIndex(Map<String, dynamic> json)
+  VersionGameIndex.fromJson(Map<String, dynamic> json)
       : gameIndex = json['game_index'],
-        version = NamedAPIResource(json['version']);
+        version = NamedAPIResource.fromJson(json['version']);
 }
 
 class NamedAPIResource {
   final String name;
   final String url;
-  NamedAPIResource(Map<String, dynamic> json)
+  NamedAPIResource.fromJson(Map<String, dynamic> json)
       : name = json['name'],
         url = json['url'];
 }
@@ -20,8 +20,8 @@ class PokemonAbility {
   final NamedAPIResource ability;
   final bool isHidden;
   final int slot;
-  PokemonAbility(Map<String, dynamic> json)
-      : ability = NamedAPIResource(json['ability']),
+  PokemonAbility.fromJson(Map<String, dynamic> json)
+      : ability = NamedAPIResource.fromJson(json['ability']),
         isHidden = json['is_hidden'],
         slot = json['slot'];
 }
@@ -39,13 +39,13 @@ class Pokemon {
   final int order;
   final int weight;
   Pokemon.fromJson(Map<String, dynamic> json)
-      : abilities = List<PokemonAbility>.from(
-            json['abilities'].map((ability) => PokemonAbility(ability))),
+      : abilities = List<PokemonAbility>.from(json['abilities']
+            .map((ability) => PokemonAbility.fromJson(ability))),
         baseExperience = json['base_experience'],
         forms = List<NamedAPIResource>.from(
-            json['forms'].map((form) => NamedAPIResource(form))),
+            json['forms'].map((form) => NamedAPIResource.fromJson(form))),
         gameIndices = List<VersionGameIndex>.from(json['game_indices']
-            .map((gameIndex) => VersionGameIndex(gameIndex))),
+            .map((gameIndex) => VersionGameIndex.fromJson(gameIndex))),
         height = json['height'],
         id = json['id'],
         isDefault = json['is_default'],
