@@ -3,7 +3,7 @@
 class VersionGameIndex {
   final int gameIndex;
   final NamedAPIResource version;
-  VersionGameIndex(dynamic json)
+  VersionGameIndex(Map<String, dynamic> json)
       : gameIndex = json['game_index'],
         version = NamedAPIResource(json['version']);
 }
@@ -11,19 +11,19 @@ class VersionGameIndex {
 class NamedAPIResource {
   final String name;
   final String url;
-  NamedAPIResource(dynamic resource)
-      : name = resource['name'],
-        url = resource['url'];
+  NamedAPIResource(Map<String, dynamic> json)
+      : name = json['name'],
+        url = json['url'];
 }
 
 class PokemonAbility {
   final NamedAPIResource ability;
   final bool isHidden;
   final int slot;
-  PokemonAbility(dynamic ability)
-      : ability = NamedAPIResource(ability['ability']),
-        isHidden = ability['is_hidden'],
-        slot = ability['slot'];
+  PokemonAbility(Map<String, dynamic> json)
+      : ability = NamedAPIResource(json['ability']),
+        isHidden = json['is_hidden'],
+        slot = json['slot'];
 }
 
 class Pokemon {
