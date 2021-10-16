@@ -3,27 +3,27 @@
 class VersionGameIndex {
   final int gameIndex;
   final NamedAPIResource version;
-  VersionGameIndex(dynamic json)
+  VersionGameIndex.fromJson(Map<String, dynamic> json)
       : gameIndex = json['game_index'],
-        version = NamedAPIResource(json['version']);
+        version = NamedAPIResource.fromJson(json['version']);
 }
 
 class NamedAPIResource {
   final String name;
   final String url;
-  NamedAPIResource(dynamic resource)
-      : name = resource['name'],
-        url = resource['url'];
+  NamedAPIResource.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
+        url = json['url'];
 }
 
 class PokemonAbility {
   final NamedAPIResource ability;
   final bool isHidden;
   final int slot;
-  PokemonAbility(dynamic ability)
-      : ability = NamedAPIResource(ability['ability']),
-        isHidden = ability['is_hidden'],
-        slot = ability['slot'];
+  PokemonAbility.fromJson(Map<String, dynamic> json)
+      : ability = NamedAPIResource.fromJson(json['ability']),
+        isHidden = json['is_hidden'],
+        slot = json['slot'];
 }
 
 class Pokemon {
@@ -38,14 +38,14 @@ class Pokemon {
   final String name;
   final int order;
   final int weight;
-  Pokemon(dynamic json)
-      : abilities = List<PokemonAbility>.from(
-            json['abilities'].map((ability) => PokemonAbility(ability))),
+  Pokemon.fromJson(Map<String, dynamic> json)
+      : abilities = List<PokemonAbility>.from(json['abilities']
+            .map((ability) => PokemonAbility.fromJson(ability))),
         baseExperience = json['base_experience'],
         forms = List<NamedAPIResource>.from(
-            json['forms'].map((form) => NamedAPIResource(form))),
+            json['forms'].map((form) => NamedAPIResource.fromJson(form))),
         gameIndices = List<VersionGameIndex>.from(json['game_indices']
-            .map((gameIndex) => VersionGameIndex(gameIndex))),
+            .map((gameIndex) => VersionGameIndex.fromJson(gameIndex))),
         height = json['height'],
         id = json['id'],
         isDefault = json['is_default'],
